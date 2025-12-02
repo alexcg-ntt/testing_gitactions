@@ -22,7 +22,7 @@ def test_githubactions_func(req: func.HttpRequest) -> func.HttpResponse:
     if name:
         return func.HttpResponse(f"Hello, {name}. This HTTP triggered function executed successfully.")
     else:
-        answer = try_openai(subscription_key)
+        answer = try_openai(str(subscription_key))
         return func.HttpResponse(
              str(answer),
              status_code=200
