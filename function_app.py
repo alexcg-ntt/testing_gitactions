@@ -1,14 +1,15 @@
 import azure.functions as func
 import logging
 import os
-#from openai_access import try_openai
+from openai_access import try_openai
 
 app = func.FunctionApp(http_auth_level=func.AuthLevel.FUNCTION)
 
 @app.route(route="test_githubactions_func")
 def test_githubactions_func(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
-    app_setting_test = os.getenv("my_test_app_setting")
+    #app_setting_test = os.getenv("my_test_app_setting")
+    subscription_key = os.getenv("OpenAIAPIKey")
     name = req.params.get('name')
     if not name:
         try:
@@ -21,8 +22,8 @@ def test_githubactions_func(req: func.HttpRequest) -> func.HttpResponse:
     if name:
         return func.HttpResponse(f"Hello, {name}. This HTTP triggered function executed successfully.")
     else:
-        #answer = try_openai()
+        answer = try_openai(subscription_key)
         return func.HttpResponse(
-             "This is my test app setting value: " + str(app_setting_test),
+             str(answer),
              status_code=200
         )

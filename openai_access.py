@@ -1,8 +1,6 @@
-import os
 from openai import AzureOpenAI
-subscription_key = os.getenv("OpenAIAPIKey")
 
-def try_openai():
+def try_openai(subscription_key):
 
     endpoint = "https://openai-fortesting.openai.azure.com/"
     deployment = "gpt-4o-mini"
