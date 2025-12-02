@@ -1,5 +1,6 @@
 import azure.functions as func
 import logging
+from openai_access import try_openai
 
 app = func.FunctionApp(http_auth_level=func.AuthLevel.FUNCTION)
 
@@ -19,7 +20,8 @@ def test_githubactions_func(req: func.HttpRequest) -> func.HttpResponse:
     if name:
         return func.HttpResponse(f"Hello, {name}. This HTTP triggered function executed successfully.")
     else:
+        answer = try_openai()
         return func.HttpResponse(
-             "Last test from GitHub Actions executed successfully. Pass a name in the query string or in the request body for a personalized response.",
+             answer,
              status_code=200
         )
