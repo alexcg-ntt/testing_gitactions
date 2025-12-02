@@ -24,6 +24,6 @@ def test_githubactions_func(req: func.HttpRequest) -> func.HttpResponse:
     else:
         #answer = try_openai(str(subscription_key))
         return func.HttpResponse(
-             str("Back to previous version. Subscription key: " + str(subscription_key)),
+             "Back to previous version. Subscription key: " + str(subscription_key),
              status_code=200
         )
