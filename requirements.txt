@@ -3,4 +3,4 @@
 # azure-monitor-opentelemetry
 
 azure-functions
-openai==2.8.1
+openai==1.67.0
