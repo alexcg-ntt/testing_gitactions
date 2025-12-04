@@ -4,3 +4,4 @@
 
 azure-functions
 openai==1.67.0
+pandas==2.2.3

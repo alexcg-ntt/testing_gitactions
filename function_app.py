@@ -2,7 +2,8 @@ import azure.functions as func
 import logging
 import os
 #from openai_access import try_openai
-from openai import AzureOpenAI
+#from openai import AzureOpenAI
+import pandas as pd
 app = func.FunctionApp(http_auth_level=func.AuthLevel.FUNCTION)
 
 @app.route(route="test_githubactions_func")
